@@ -26,3 +26,5 @@ Route::get('/jobs', function() {
         'data' => $job
     ]);
 });
+
+Route::post('/jobs', 'Api\JobsController@store');
