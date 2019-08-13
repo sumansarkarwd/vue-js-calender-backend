@@ -10,6 +10,11 @@ class JobsController extends Controller
 {
     public function store(Request $request)
     {
+        $request->validate([
+            'job' => 'required',
+            'date' => 'required|after_or_equal:'.date("Y-m-d")
+        ]);
+
         $job = Jobs::create([
             'job' => $request->job,
             'date' => $request->date,
